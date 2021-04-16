@@ -1,0 +1,760 @@
+@import'variables';
+
+
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.page{
+    padding-top: 100px;
+    padding-bottom: 100px;
+    @include breakpoint (lg) {
+        padding-top: 40px;
+        padding-bottom: 60px;
+    }
+    @include breakpoint (md) {
+        padding-top: 20px;
+        padding-bottom: 40px;
+    }
+    @include breakpoint (sm) {
+        padding-top: 30px;
+        padding-bottom: 15px;
+    }
+    @include breakpoint (xs) {
+        padding-top: 20px;
+        padding-bottom: 10px;
+    }
+
+    &-light {
+        background-color: $light;
+    }
+    &-dark{
+        background-color: $dark;
+    }
+    &-white{
+        padding-bottom: 160px;
+        @include breakpoint (lg) {
+            padding-bottom: 120px;
+        }
+        @include breakpoint (md) {
+            padding-bottom: 100px;
+        }
+        @include breakpoint (sm) {
+            padding-bottom: 80px;
+        }
+    }
+}
+
+.wrapper {
+    // [1]смотрим на блок "новые модели, этот блок максимальная ширина 1110px"
+    max-width: 1110px;
+    // [2]Для того чтобы стоял по центру
+    margin: 0 auto;
+    padding-left: 15px; /*Почему то у меня отсутствует*/
+    padding-right: 15px; /*Почему то у меня отсутствует*/
+}
+
+.header {
+    // чтобы расставить в одну линию
+    display: flex;
+    // Равномерно распределяет все элементы по ширине flex-блока. Первый элемент вначале, последний в конце.
+    justify-content: space-between;
+    // Чтобы встала по центру высоты
+    align-items: center;
+    padding-bottom: 28px;
+    padding-top: 48px;
+    /*padding-left: 0px; у ани нету no*/
+    /*padding-right: 15px; у ани нету no, для выравнивания логотипа*/
+    @include breakpoint (lg) {
+        padding-top: 30px;
+    }
+    @include breakpoint (xs) {
+        padding-top: 20px;
+    }
+    &-logo {
+        @include breakpoint (md) {
+            max-width: 200px;
+        }
+        @include breakpoint (sm) {
+            max-width: 115px;
+        }
+        @include breakpoint (xs) {
+            max-width: 90px;
+        }
+    }
+}
+
+nav{
+    @include breakpoint (lg) {
+        display: none;
+    }
+}
+
+.nav {
+    display: flex;
+    // убрать точки пунктов
+    list-style-type: none;
+    // margin-right: -25px;
+    padding-left: 0;
+    font-size: 14px;
+    @include breakpoint (lg) {
+        display: none;
+    }
+    &-item {
+        margin-right: 45px;
+        font-size: 14px;
+        letter-spacing: 0.55px;
+    }
+    &-link {
+        color: $dark;
+        text-decoration: none;
+    }
+    &-info{
+        .nav-item{
+           margin-left: 25px;
+           margin-right: 25px;
+        }
+    }
+}
+
+.cart {
+    background-image: url(../img/cart.svg);
+    padding-left: 45px;
+    display: block;
+    height: 35px;
+    background-repeat: no-repeat;
+    background-position: 0 center;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    &:focus {
+        outline: none;
+    }
+    @include breakpoint (xs) {
+        padding-left: 32px;
+    }
+
+    &-count {
+        background-image: url(../img/cart-bg.svg);
+        background-repeat: no-repeat;
+        background-position: 0 center;
+        color: $white;
+        font-size: 12px;
+        // bold (значение из font google)
+        font-weight: 700;
+        padding: 10px 24px;
+        display: block;
+        @include breakpoint (xs) {
+            padding: 10px 25px;
+            font-size: 10px;
+        }
+    }
+}
+
+.title-h2{
+    margin-top: 52px;
+    text-align: center;
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    @include breakpoint (sm) {
+        font-size: 28px;
+    }
+    @include breakpoint (xs) {
+        font-size: 20px;
+    }
+}
+
+.btn{
+    background-color: $accent;
+    color: $white;
+    font-size: 16px;
+    font-weight: 400;
+    // все заглавные буквы
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 18px 30px 18px 30px;
+    // межбуквенный интервал
+    letter-spacing: 0.4px;
+    @include breakpoint (md) {
+        font-size: 20px;
+        
+    }
+    @include breakpoint (sm) {
+        font-size: 15px;
+        
+    }
+    @include breakpoint (xs) {
+        font-size: 12px;
+        padding: 15px 16px 15px 16px;
+    }
+    &-xs{
+        margin-bottom: 30px;
+        padding: 5px 30px 5px 30px;
+    }
+    &-center{
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        max-width: 160px;
+        margin: 0 auto;
+        padding: 15px 16px 15px 16px;
+
+        @include breakpoint (md) {
+            max-width: 200px;
+        }
+        @include breakpoint (xs) {
+            max-width: 135px;
+        }
+        span{
+            margin-right: 10px;
+            letter-spacing: 0.35px;
+            margin-left: 2px;
+        }
+        img{
+            max-width: 100%;
+        }
+    }
+}
+
+.main {
+    padding-bottom: 23px;
+    display: flex;
+    justify-content: space-between;
+    // padding-bottom: 123px;
+    @include breakpoint (lg) {
+        flex-wrap: wrap;
+    }
+    &-item{
+        flex: 0 0 50%;
+        @include breakpoint (lg) {
+            flex: 0 0 100%;
+        }
+    }
+}
+
+.sale {
+    @include breakpoint (lg) {
+        text-align: center;
+    }
+    &-description {
+        font-size: 30px;
+        letter-spacing: 0.6px;
+        font-weight: 400;
+        // margin-top: 30px;
+        // margin-bottom: 0;
+        
+        @include breakpoint (sm) {
+            font-size: 20px;
+        }
+        @include breakpoint (xs) {
+            font-size: 16px;
+        }
+    }
+
+    &-title{
+        letter-spacing: 2.2px;
+        font-size: 55px;
+        font-weight: 700;
+        margin-top: 29px;
+        margin-bottom: 60px;
+        @include breakpoint (md) {
+            font-size: 50px; 
+        }
+        @include breakpoint (sm) {
+            font-size: 28px;
+            margin-bottom: 50px;
+        }
+        @include breakpoint (xs) {
+            font-size: 20px;
+            
+        }
+    }
+}
+
+.box {
+    position: relative;
+    @include breakpoint (lg) {
+        max-width: 600px;
+        margin: 50px auto 0 ;
+    }
+    @include breakpoint (sm) {
+        max-width: 400px;
+    }
+    @include breakpoint (xs) {
+        display: flex;
+        max-width: 280px;
+        flex-direction: column-reverse;
+        margin: 15px auto 0;
+    }
+    
+    &-price {
+        position: absolute;
+        right: 9px;
+        top: 35px;
+        text-align: right; 
+        letter-spacing: 1px;
+        @include breakpoint (xs) {
+            text-align: center;
+            letter-spacing: 1px;
+            margin-top: 15px;
+            position: initial;
+        }
+        &-old{
+            font-size: 24px;
+            font-weight: 700;
+            @include breakpoint (sm) {
+                font-size: 14px;
+            }
+        }
+        &-new{
+            font-size: 42px;
+            font-weight: 700;
+            color: $important;
+            margin-top: 17px;
+            margin-right: -9px;
+            @include breakpoint (md) {
+                margin-right: -5px;
+                font-size: 40px;
+            }
+            @include breakpoint (sm) {
+                font-size: 28px;
+                margin-top: 4px;
+            }
+            @include breakpoint (s) {
+                font-size: 22px;
+                margin-top: 4px;
+            }
+            @include breakpoint (xs) {
+                font-size: 28px;
+                margin-top: 4px;
+            }
+        }
+    }
+    &-image{
+        width: 100%;
+        max-width: 556px;
+    }
+}
+
+
+.notice{
+    padding: 59px 0 45px;
+    text-align: center;
+    color: $white;
+    @include breakpoint (sm) {
+        padding: 40px 0 42px;
+    }
+    &-title{
+        font-size: 30px;
+        letter-spacing: 0.6px;
+        text-transform: uppercase;
+        margin-left: -2px;
+        font-weight: 400;
+        line-height: 1.5;
+        margin-bottom: 1px;
+        @include breakpoint (md) {
+            margin-bottom: 15px;
+        }
+        @include breakpoint (sm) {
+            font-size: 22px;
+        }
+        @include breakpoint (s) {
+            font-size: 18px;
+        }
+        @include breakpoint (xs) {
+            margin-bottom: 30px;
+            font-size: 15px;
+            line-height: 2;
+        }
+        span {
+            font-weight: 700;
+            @include breakpoint (md) {
+                display: block;
+            }
+        }
+    }
+    &-description{
+        font-size: 21px;
+        font-weight: 300;
+        letter-spacing: 0.01px;
+        margin-left: -2px;
+        padding-top: 0px;
+        line-height: 1.5;
+        margin-top: 17px;
+        
+        @include breakpoint (sm) {
+            font-size: 18px;
+        }
+        @include breakpoint (xs) {
+            font-size: 15px;
+        }
+    }
+}
+
+.collection {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 20px;
+    @include breakpoint(lg){
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    @include breakpoint(sm){
+        padding-left: unset;
+    }
+    &-item{
+        flex: 0 0 50%;
+        padding: 42px 0 64px;
+        background-size: 190px 171px;
+        background-repeat: no-repeat;
+        background-position: calc(100% - 37px) bottom;
+        @include breakpoint (lg) {
+            flex: 0 0 70%;
+            background-size: 200px 181px;
+        }
+        @include breakpoint (md) {
+            flex: 0 0 80%;
+            background-position: 100% bottom;
+            margin-left: unset;
+        }
+        @include breakpoint (sm) {
+            flex: 0 0 90%;
+            background-size: 160px 141px;
+            padding: 42px 0 75px;
+        }
+        @include breakpoint (s) {
+            background-size: 150px 131px;
+        }
+        @include breakpoint (xs) {
+            padding: 42px 0 100px;
+        }
+        }
+        
+    &-man{
+        background-image: url("../img/man.png");
+        // background-position: calc(100% - 25px) bottom;
+    }
+    &-woman{
+        background-image: url("../img/woman.png");
+        // background-position: calc(100% - 38px) bottom;
+        padding-left: 25px;
+        @include breakpoint (lg) {
+            padding-left: unset;
+        }
+    }
+    &-title{
+        font-size: 24px;
+        font-weight: 300;
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+        @include breakpoint (sm) {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+        span{
+            font-weight: 500;
+        }
+    }
+    &-description{
+        margin-bottom: 41px;
+        margin-top: 21px;
+        font-size: 16px;
+        font-weight: 300;
+        @include breakpoint (sm) {
+            margin-bottom: 40px;
+            margin-top: 12px;
+            font-size: 14px;
+        }
+    }
+}
+
+.product{
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    margin-top: 101px;
+    margin-bottom: 100px;
+    @include breakpoint (lg) {
+        flex-wrap: wrap;
+    }
+    @include breakpoint (sm) {
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 60px;
+    }
+    &-item{
+        flex: 0 0 23%;
+        position: relative;
+        @include breakpoint (lg) {
+            flex: 0 0 49%;
+            margin-bottom: 50px;
+        }
+        @include breakpoint (sm) {
+            flex: 0 0 45%;
+            margin: 5px 6px 15px;
+        }
+        @include breakpoint (xs) {
+            flex: 0 0 100%;
+        }
+        &:before, &:after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 25px;
+            // background-size: cover;
+            background-size: 100% 25px;
+            background-repeat: no-repeat;
+            @include breakpoint (lg) {
+                background-size: 100% 25px;
+            }
+        }
+        &:before{
+            background-image: url("../img/item-top.svg");
+        }
+        &:after{
+            background-image: url("../img/item-bottom.svg");
+        }
+    }
+    &-title{
+        font-size: 14px;
+        font-weight: 600;
+        margin-top: 22px;
+        margin-bottom: 12px;
+    }
+    &-price{
+        margin-top: 0px;
+        margin-bottom: -1px;
+        color: $accent;
+        font-size: 18px;
+        font-weight: 700;
+    }
+}
+
+.footer{
+    display: flex;
+    justify-content: space-between;
+    padding: 72px 0 52px;
+    @include breakpoint (lg) {
+        flex-wrap: wrap;
+        // padding: 45px 0 45px;
+    }
+    @include breakpoint (sm) {
+        padding: 10px 0;
+        justify-content: center;
+    }
+    &-logo{
+        flex: 0 0 40%;
+        @include breakpoint (lg) {
+            margin-bottom: 30px;
+            flex: 0 0 100%;
+        }
+        @include breakpoint (xs) {
+            margin-top: 15px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: center;
+        }
+    }
+
+    &-nav{
+        display: flex;
+        flex: 0 0 60%;
+        justify-content: space-between;
+        color: $white;
+        @include breakpoint (lg) {
+            flex: 0 0 100%;
+        }
+        @include breakpoint (sm) {
+            flex-wrap: wrap;
+        }
+        @include breakpoint (xs) {
+            display: inline-block;
+        }
+    }
+
+    &-list{
+        list-style-type: none;
+        padding-left: 0;
+        margin-top: 10px;
+        @include breakpoint (sm) {
+            flex: 0 0 49%;
+            margin-bottom: 20px;
+        }
+        @include breakpoint (xs) {
+            margin-bottom: 45px;
+            text-align: center;
+        }
+        &-title{
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding-bottom: 8px;
+        }
+        &-item{
+            margin-bottom: 14px;
+        }
+        &-link{
+            color: $grey;
+            font-size: 14px;
+            text-decoration: none;
+            font-weight: 400;
+
+            img{
+                margin-right: 5px;
+            }
+        }
+    }
+}
+
+.copyright{
+    margin: 5px 0;
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: $dark;
+    align-items: center;
+    line-height: 1.5;
+    @include breakpoint (lg) {
+            margin: 25px 0;
+    }
+    @include breakpoint (sm) {
+        display: block;
+        margin: 5px 0;
+        text-align: left;
+    }
+    &-link{
+        font-size: 14px;
+        font-weight: 400;
+        padding: 10px 0;
+    }
+}
+
+// кнопка меню бургер
+.nav-bar {
+	position: absolute;
+	background-color: $accent;
+	top: 0;
+	right: 100%;
+    height: 101vh;
+    width: 320px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: position 2.9s;
+	-webkit-transition: position 2.9s;
+	-moz-transition: position 2.9s;
+	-ms-transition: position 2.9s;
+	-o-transition: position 2.9s;
+    
+    @include breakpoint (sm){
+        width: 80%;
+    }
+}
+
+.toggle {
+	left: 0;
+	box-shadow: 1px 0 15px 2px rgba(0, 0, 0, 0.4);
+    z-index: 9999;
+}
+
+.toggle-menu {
+	background-color: $accent;
+	width: 24px;
+	height: 24px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+    padding: 7px 12px;
+	cursor: pointer;
+    @include breakpoint (minlg) {
+        display: none;
+    }
+    
+    @include breakpoint (sm) {
+        width: 20px;
+        height: 20px;
+        padding: 6px 10px;
+    }
+    @include breakpoint (xs) {
+        width: 18px;
+        height: 18px;
+        padding: 2px 2px;
+        align-items: center;
+    }
+}
+
+.line {
+	width: 100%;
+	height: 3px;
+	border-radius: 5px;
+	background-color: $white;
+	transition: transform 0.2s ease-out;
+	-webkit-transition: transform 0.2s ease-out;
+	-moz-transition: transform 0.2s ease-out;
+	-ms-transition: transform 0.2s ease-out;
+	-o-transition: transform 0.2s ease-out;
+    @include breakpoint (xs) {
+        height: 2px;
+    }
+}
+
+.toggle .line1 {
+	background-color: #000000;
+	transform: scale(0.9) rotateZ(-45deg) translate(-6px, 4px);
+}
+
+.toggle .line2 {
+	display: none;
+}
+
+.toggle .line3 {
+	background-color: #000000;
+	transform: scale(0.9) rotateZ(45deg) translate(-6px, -4px);
+}
+
+.toggle .toggle-menu {
+	background-color: white;
+}
+
+.nav-list {
+	list-style: none;
+}
+
+.nav-list-item {
+    text-align: center;
+    padding: 25px 0;
+    font-size: 25px;
+    
+    @include breakpoint (sm) {
+        padding: 20px 0;  
+    }
+    @include breakpoint (xs) {
+        padding: 18px 0;
+        font-size: 22px;  
+    }
+}
+
+
+.nav-link::before {
+	position: absolute;
+	content: '';
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 1px;
+	background-color: #fff;
+	transform: scaleX(0);
+	transition: transform 0.4s ease-in-out;
+	transform-origin: left;
+	-webkit-transition: transform 0.4s ease-in-out;
+	-moz-transition: transform 0.4s ease-in-out;
+	-ms-transition: transform 0.4s ease-in-out;
+	-o-transition: transform 0.4s ease-in-out;
+}
+
+.nav-link:hover::before {
+	transform: scaleX(1);
+}
